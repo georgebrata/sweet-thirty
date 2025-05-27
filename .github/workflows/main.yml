@@ -1,4 +1,4 @@
-name: CI - main branch -> 30.georgebrata.ro
+name: CI/CD main branch -> 30.georgebrata.ro
 on:
   push:
     branches: [ "main" ]
