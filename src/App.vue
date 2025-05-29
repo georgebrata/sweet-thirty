@@ -9,7 +9,7 @@ import Services from "./components/Services.vue";
 // import Testimonials from "./components/Testimonials.vue";
 // import Team from "./components/Team.vue";
 // import Pricing from "./components/Pricing.vue";
-import Sponsors from "./components/Sponsors.vue";
+// import Sponsors from "./components/Sponsors.vue";
 // import Team from "./components/Team.vue";
 import Community from "./components/Community.vue";
 import Contact from "./components/Contact.vue";

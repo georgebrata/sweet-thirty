@@ -15,6 +15,11 @@ interface FAQProps {
 
 const FAQList: FAQProps[] = [
   {
+    question: "Ce cadou pot să cumpăr?",
+    answer: "Orice cadou din urmatoarea listă e mai mult ca perfect: <a style='text-decoration: underline;' href='https://www.emag.ro/favorites/hash/b34ce790-a4f6-4395-be8f-468c74c7295b' target='_blank'>emag wishlist</a>",
+    value: "item-1"
+  },
+  {
     question: "Ce activități vor fi la petrecere?",
     answer: "Petrecerea va include muzică live (jazz, hip-hop, house și manele), dans, și multe momente de distracție împreună. Vom avea și activități în aer liber dacă vremea permite.",
     value: "item-1"
@@ -72,7 +77,9 @@ const FAQList: FAQProps[] = [
       >
         <AccordionTrigger class="text-left"> {{ question }} </AccordionTrigger>
 
-        <AccordionContent>{{ answer }}</AccordionContent>
+        <AccordionContent>
+          <div v-html="answer" />
+        </AccordionContent>
       </AccordionItem>
     </Accordion>
 

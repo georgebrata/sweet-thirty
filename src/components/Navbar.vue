@@ -44,8 +44,8 @@ const routeList: RouteProps[] = [
     label: "Dress code",
   },
   {
-    href: "#program",
-    label: "Program",
+    href: "#activitati",
+    label: "Activități",
   },
   {
     href: "#adresa",

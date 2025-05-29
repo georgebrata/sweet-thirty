@@ -13,6 +13,7 @@ import {
   Footprints,
   Wallet,
 } from "lucide-vue-next";
+import { onMounted, ref } from "vue";
 
 interface BenefitsProps {
   icon: string;
@@ -22,24 +23,24 @@ interface BenefitsProps {
 
 const benefitList: BenefitsProps[] = [
   {
-    icon: "bath",
-    title: "Costume de baie",
-    description: "Piscina si ciubarul te vor",
+    icon: "waves",
+    title: "Costum de baie",
+    description: "Piscina și ciubărul te vor aștepta",
+  },
+  {
+    icon: "footprints",
+    title: "Încălțăminte sport",
+    description: "Vom avea un turneu de fotbal așa că ai nevoie de cei mai buni adidași",
   },
   {
     icon: "stickyNote",
     title: "Prosoape",
-    description: "Esti la cabana, nu la hotel",
-  },
-  {
-    icon: "footprints",
-    title: "Sports shoes",
-    description: "Vom avea un turneu de fotbal asa ca ai nevoie de cei mai buni shoes",
+    description: "Ești la cabană, nu la hotel",
   },
   {
     icon: "shirt",
     title: "Pijamale",
-    description: "Doar daca planuiesti sa ramai peste noapte",
+    description: "Doar dacă planifici să rămâi peste noapte",
   },
 ];
 
@@ -63,6 +64,13 @@ const iconMap: Record<
   footprints: Footprints,
   shirt: Shirt,
 };
+
+const showPartyElements = ref(false);
+
+onMounted(() => {
+  const urlParams = new URLSearchParams(window.location.search);
+  showPartyElements.value = urlParams.has('party');
+});
 </script>
 
 <template>
@@ -77,14 +85,17 @@ const iconMap: Record<
         <h2 class="text-3xl md:text-4xl font-bold mb-4">
           Nu uita să împachetezi
         </h2>
-        <p class="text-xl text-muted-foreground mb-8">
+        <p v-if="showPartyElements" class="text-xl text-muted-foreground mb-8">
           Va fi un weekend plin de activități pentru toate vârstele și personalitățile.
+        </p>
+        <p v-else class="text-xl text-muted-foreground mb-8">
+          Va fi o zi plină de activități pentru toate vârstele și personalitățile.
         </p>
       </div>
 
       <div class="grid lg:grid-cols-2 gap-4 w-full">
         <Card
-          v-for="({ icon, title }, index) in benefitList"
+          v-for="({ icon, title }, index) in !showPartyElements ? benefitList.slice(0, 2) : benefitList"
           :key="title"
           class="bg-muted/50 dark:bg-card hover:bg-background dark:hover:bg-background transition-all delay-75 group/number"
         >

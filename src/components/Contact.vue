@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
 import { Button } from "./ui/button";
-import { Card, CardHeader, CardContent, CardFooter } from "./ui/card";
+import { Card, CardHeader, CardContent } from "./ui/card";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Checkbox } from "./ui/input";
@@ -49,11 +49,12 @@ const handleSubmit = async () => {
         "nume": contactForm.name,
         "telefon": contactForm.phone,
         "counter": contactForm.counter,
-        "friday": contactForm.friday ? "Da" : "Nu",
-        "fridayOvernight": contactForm.overnightFriday ? "Da" : "Nu",
-        "saturday": contactForm.saturday ? "Da" : "Nu",
-        "saturdayOvernight": contactForm.overnightSaturday ? "Da" : "Nu",
-        "sunday": contactForm.sunday ? "Da" : "Nu",
+        "friday": showPartyElements.value ? contactForm.friday ? "Da" : "Nu" : "Nu",
+        "fridayOvernight": showPartyElements.value ? contactForm.overnightFriday ? "Da" : "Nu" : "Nu",
+        "saturday": showPartyElements.value ? contactForm.saturday ? "Da" : "Nu" : "Nu",
+        "saturdayOvernight": showPartyElements.value ? contactForm.overnightSaturday ? "Da" : "Nu" : "Nu",
+        "sunday": !showPartyElements.value ? "Da" : contactForm.sunday ? "Da" : "Nu",
+        "party": showPartyElements.value ? "✓" : "✘",
         "datetime": new Date().toISOString()
       }
     };
@@ -91,6 +92,13 @@ const handleSubmit = async () => {
     alert('A apărut o eroare. Te rugăm să încerci din nou sau să ne contactezi telefonic.');
   }
 };
+
+const showPartyElements = ref(false);
+
+onMounted(() => {
+  const urlParams = new URLSearchParams(window.location.search);
+  showPartyElements.value = urlParams.has('party');
+});
 </script>
 
 <template>
@@ -136,12 +144,16 @@ const handleSubmit = async () => {
           <div>
             <div class="flex gap-2 justify-center md:justify-end">
               <Clock />
-              <div class="font-bold">Program</div>
+              <div v-if="showPartyElements" class="font-bold">Program</div>
+              <div v-else class="font-bold">Data</div>
             </div>
 
-            <div>
-              <div><b>start</b> Vineri, 18 iulie 2025</div>
-              <div><b>end</b> Duminica, 20 iulie 2025</div>
+            <div v-if="showPartyElements">
+              <div><b>start</b> Sâmbătă, 19 iulie 2025</div>
+              <div><b>end</b> Duminică, 20 iulie 2025</div>
+            </div>
+            <div v-else>
+              <div>Duminică, 20 iulie 2025</div>
             </div>
           </div>
         </div>
@@ -208,7 +220,7 @@ const handleSubmit = async () => {
                 </div>
               </div>
 
-              <div class="flex flex-col gap-1.5">
+              <div v-if="showPartyElements" class="flex flex-col gap-1.5">
                 <Label for="message" v-if="contactForm.counter === 1">Vin în ziua de</Label>
                 <Label for="message" v-else>Venim în ziua de</Label>
                 <div class="flex items-center space-x-4 mb-2">
@@ -238,7 +250,7 @@ const handleSubmit = async () => {
                 </div>
               </div>
 
-              <div class="flex flex-col gap-1.5" v-if="contactForm.friday || contactForm.saturday">
+              <div class="flex flex-col gap-1.5" v-if="showPartyElements && (contactForm.friday || contactForm.saturday)">
                 <Label for="overnight" v-if="contactForm.counter === 1">Doresc să rămân peste noapte</Label>
                 <Label for="overnight" v-else>Dorim să rămânem peste noapte</Label>
                 <div class="flex items-center space-x-4 mb-2">

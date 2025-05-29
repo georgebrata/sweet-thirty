@@ -7,7 +7,10 @@ import { ref, onMounted } from 'vue';
 import { Fireworks } from '@fireworks-js/vue'
 
 const showFireworks = ref(false);
-const targetDate = new Date('2025-07-18');
+const showPartyElements = ref(false);
+const targetDate = showPartyElements.value ? new Date('2025-07-18') : new Date('2025-07-20');
+const urlParams = new URLSearchParams(window.location.search);
+showPartyElements.value = urlParams.has('party');
 const { days, hours, minutes, seconds } = useCountdown(targetDate);
 
 const ms = ref(1000);
@@ -30,6 +33,10 @@ const stopParty = () => {
   showFireworks.value = false;
 };
 
+onMounted(() => {
+  const urlParams = new URLSearchParams(window.location.search);
+  showPartyElements.value = urlParams.has('party');
+});
   
 </script>
 
@@ -56,12 +63,18 @@ const stopParty = () => {
               >George Brata</span>'s
               sweet 30 🎉
           </h1>
-          <h2 class="text-xl md:text-2xl lg:text-3xl mt-2 italic">
-            18 - 20 Iulie 2025
+          <h2 v-if="showPartyElements" class="text-xl md:text-2xl lg:text-3xl mt-2 italic">
+            19 - 20 Iulie 2025
+          </h2>
+          <h2 v-else class="text-xl md:text-2xl lg:text-3xl mt-2 italic">
+            20 Iulie 2025
           </h2>
         </div>
-        <p class="max-w-screen-sm mx-auto text-xl text-muted-foreground">
+        <p v-if="showPartyElements" class="max-w-screen-sm mx-auto text-xl text-muted-foreground">
           Ești pregătit să petreci un weekend spectaculos în natură, <br/> pe malul Crișului Repede?
+        </p>
+        <p v-else class="max-w-screen-sm mx-auto text-xl text-muted-foreground">
+          Ești pregătit să petreci timp spectaculos în natură, <br/> pe malul Crișului Repede?
         </p>
 
         <Badge
