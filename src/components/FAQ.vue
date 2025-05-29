@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Phone } from "lucide-vue-next";
 
 interface FAQProps {
   question: string;
@@ -14,34 +15,35 @@ interface FAQProps {
 
 const FAQList: FAQProps[] = [
   {
-    question: "Is this template free?",
-    answer: "Yes. It is a free Shadcn/Vue template.",
-    value: "item-1",
+    question: "Ce activități vor fi la petrecere?",
+    answer: "Petrecerea va include muzică live (jazz, hip-hop, house și manele), dans, și multe momente de distracție împreună. Vom avea și activități în aer liber dacă vremea permite.",
+    value: "item-1"
   },
   {
-    question: "Duis aute irure dolor in reprehenderit in voluptate velit?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam consectetur sapiente, iste rerum reiciendis animi nihil nostrum sit quo, modi quod.",
-    value: "item-2",
+    question: "Aduceți voi mingi?",
+    answer: "Da, aducem mingi de fotbal și baschet. Dacă dorești să aduci alte sporturi, te rugăm să ne anunți.",
+    value: "item-2"
   },
   {
-    question:
-      "Lorem ipsum dolor sit amet Consectetur natus dolor minus quibusdam?",
-    answer:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore qui nostrum reiciendis veritatis.",
-    value: "item-3",
+    question: "Pot să rămân peste noapte?",
+    answer: "Da, există posibilitatea de cazare pentru vineri și sâmbătă noaptea. Te rugăm să menționezi acest lucru în formularul de RSVP pentru a putea organiza spațiile de cazare.",
+    value: "item-3"
   },
   {
-    question: "Excepteur sint occaecat cupidata non proident sunt?",
-    answer: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-    value: "item-4",
+    question: "Ce să aduc cu mine?",
+    answer: "Doar bună dispoziție și energie pentru dans! Dacă rămâi peste noapte, nu uita să aduci cele necesare pentru înnoptat.",
+    value: "item-4"
   },
   {
-    question:
-      "Enim ad minim veniam, quis nostrud exercitation ullamco laboris?",
-    answer: "consectetur adipisicing elit. Sint labore.",
-    value: "item-5",
+    question: "Până la ce oră se întinde petrecerea?",
+    answer: "Petrecerea se termină duminică seara, 20 iulie. Pentru cei care rămân peste noapte, distracția continuă până dimineața!",
+    value: "item-5"
   },
+  {
+    question: "Pot să vin cu mașina?",
+    answer: "Da, există locuri de parcare disponibile la locație. Dacă plănuiești să consumi alcool, te rugăm să ai un șofer desemnat sau să rămâi peste noapte.",
+    value: "item-6"
+  }
 ];
 </script>
 
@@ -74,17 +76,12 @@ const FAQList: FAQProps[] = [
       </AccordionItem>
     </Accordion>
 
-    <h3 class="font-medium mt-4">
+    <h3 class="font-medium mt-4 text-center">
       Tot mai ai întrebări?
-      <a
-        href="#"
-        class="text-muted-foreground"
-      >
-        <a
-          href="#contact"
-          class="underline"
-          >Scrie un mesaj</a
-        >
+      <br />
+      <a href="tel:+40774431127" class="underline">
+        <Phone class="inline-block size-4 mr-1" />
+        Suna-mă
       </a>
     </h3>
   </section>

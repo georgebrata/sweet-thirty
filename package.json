@@ -25,6 +25,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fireworks-js/vue": "^2.10.8",
     "@selemondev/vue3-marquee": "^0.0.8",
     "@vee-validate/zod": "^4.13.2",
     "@vueuse/core": "^11.1.0",
@@ -44,6 +45,7 @@
     "@types/node": "^20.14.5",
     "@vitejs/plugin-vue": "^5.0.5",
     "autoprefixer": "^10.4.19",
+    "less": "^4.3.0",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.4.5",
     "vite": "^5.3.1",

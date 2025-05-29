@@ -54,7 +54,7 @@ const routeList: RouteProps[] = [
   {
     href: "#faq",
     label: "Întrebări frecvente",
-  },
+  }
 ];
 
 const featureList: FeatureProps[] = [
@@ -64,7 +64,7 @@ const featureList: FeatureProps[] = [
   },
   {
     title: "Casual",
-    description: "De la ținută și atmosferă până la glume și conversații, totul este relaxat",
+    description: "De la ținută și atmosferă până la glume și conversații, totul este casual",
   },
   {
     title: "Distracție",
@@ -91,7 +91,7 @@ const isOpen = ref<boolean>(false);
       href="/"
       class="font-bold text-lg flex items-center ml-4"
     >
-      George Brata's Sweet 30 🎉
+      George Brata's Sweet Thirty
     </a>
     <!-- Mobile -->
     <div class="flex items-center lg:hidden">
@@ -114,7 +114,7 @@ const isOpen = ref<boolean>(false);
                   href="/"
                   class="flex items-center"
                 >
-                  George Brata's Sweet 30 🎉
+                  George Brata's Sweet Thirty
                 </a>
               </SheetTitle>
             </SheetHeader>

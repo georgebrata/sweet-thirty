@@ -96,7 +96,7 @@ const iconMap: Record<
               />
 
               <span
-                class="text-5xl text-muted-foreground/15 font-medium transition-all delay-75 group-hover/number:text-muted-foreground/30"
+                class="text-5xl text-primary/15 font-medium transition-all delay-75 group-hover/number:text-primary/30"
                 >0{{ index + 1 }}</span
               >
             </div>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
 import Navbar from "./components/Navbar.vue";
 import Hero from "./components/Hero.vue";
 import Benefits from "./components/Benefits.vue";
@@ -14,19 +15,27 @@ import Community from "./components/Community.vue";
 import Contact from "./components/Contact.vue";
 import FAQ from "./components/FAQ.vue";
 import Footer from "./components/Footer.vue";
+
+const showPartyElements = ref(false);
+
+onMounted(() => {
+  const urlParams = new URLSearchParams(window.location.search);
+  showPartyElements.value = urlParams.has('party');
+});
 </script>
 
 <template>
   <Navbar />
   <Hero />
-  <Sponsors />
+  <!-- <Sponsors /> -->
   <Benefits />
   <Features />
-  <Services />
+  <Community v-if="showPartyElements" />
+  <Services v-if="showPartyElements" />
   <!-- <HowItWorks /> -->
   <!-- <Testimonials /> -->
   <!-- <Team /> -->
-  <Community />
+
   <!-- <Pricing /> -->
   <Contact />
   <FAQ />

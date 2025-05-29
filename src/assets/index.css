@@ -57,7 +57,7 @@ html {
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
 
-    --primary: 0 0% 98%;
+    --primary: 0 90% 98%;
     --primary-foreground: 240 5.9% 10%;
 
     --secondary: 240 3.7% 15.9%;
@@ -147,7 +147,7 @@ html {
     --popover: 221 63% 11%;
     --popover-foreground: 251 46% 93%;
 
-    --primary: 239 47% 30%;
+    --primary: 239 47% 65%;
     --primary-foreground: 251 46% 93%;
 
     --secondary: 12 6.5% 15.1%;
@@ -164,7 +164,7 @@ html {
 
     --border: 12 6.5% 15.1%;
     --input: 12 6.5% 15.1%;
-    --ring: 239 47% 30%;
+    --ring: 239 47% 65%;
   }
 }
 

@@ -2,15 +2,18 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import {
-  Paintbrush,
-  MessageCircle,
-  TabletSmartphone,
-  BadgeCheck,
-  Goal,
-  PictureInPicture,
-  MousePointerClick,
-  Newspaper,
+  Dumbbell,
+  Trophy,
+  Medal,
+  Waves,
+  Wine,
+  UtensilsCrossed,
+  ForkKnife,
 } from "lucide-vue-next";
+
+import Basketball from "@/components/icons/Basketball.vue";
+import Tennis from "@/components/icons/Tennis.vue";
+import { onMounted, ref } from "vue";
 
 interface FeaturesProps {
   icon: string;
@@ -18,59 +21,81 @@ interface FeaturesProps {
   description: string;
 }
 
-const featureList: FeaturesProps[] = [
-  {
-    icon: "tabletSmartphone",
-    title: "Înviorare de dimineață",
-    description: "Începem ziua în forță cu un antrenament de grup la ora 10:00",
-  },
-  {
-    icon: "badgeCheck",
+const saturdayActivities: FeaturesProps[] = [
+{
+    icon: "trophy",
     title: "Turneu de fotbal",
-    description: "Formăm echipe și organizăm un mini-campionat de fotbal. Adu-ți cei mai buni adidași!",
+    description: "Formăm echipe și organizăm un mini-campionat de fotbal. Adu schemele!",
   },
   {
-    icon: "goal",
-    title: "Brata Olympics",
-    description: "5 probe sportive individuale și de echipă. Medalii și premii pentru câștigători!",
+    icon: "basketball",
+    title: "Meciuri de baschet",
+    description: "Turneu one-on-one de baschet. Adu-ți cei mai buni adidași!",
   },
   {
-    icon: "pictureInPicture",
+    icon: "medal",
+    title: "Scavenger Hunt",
+    description: "Caută, colecționează și câstigă un premiu surpriză",
+  },
+]
+
+const sundayActivities: FeaturesProps[] = [
+{
+    icon: "waves",
     title: "Piscină + Ciubăr",
     description: "Răcorire la piscină, relaxare la ciubăr cu apă caldă și vedere spre munte. Nu uita costumul de baie!",
   },
   {
-    icon: "mousePointerClick",
+    icon: "wine",
     title: "Cocktail Bar",
     description: "Vrem să ne gustăm cea mai bună rețetă a ta de cocktails",
   },
   {
-    icon: "newspaper",
+    icon: "utensilsCrossed",
     title: "Barbecue",
-    description: "Grătar cu specialități: mici, cârnați de casă și bruschete bihorene. Plus deserturi făcute în casă!",
+    description: "Grătar cu specialități: mici, cârnați de casă și <i>bruschete bihorene</i>",
   },
+]
+
+const activities: FeaturesProps[] = [
+  {
+    icon: "dumbbell",
+    title: "Înviorare de dimineață",
+    description: "Începem ziua în forță cu un antrenament de grup la ora 10:00",
+  },
+  {
+    icon: "forkKnife",
+    title: "Brunch",
+    description: "Un brunch corespunzător cu un meniu generos și băuturi light",
+  },
+  {
+    icon: "tennis",
+    title: "Badminton",
+    description: "Campionat de badminton pe sate. Cât de sus poți să sari?",
+  }
 ];
 
 const iconMap: Record<
   string,
-  | typeof TabletSmartphone
-  | typeof BadgeCheck
-  | typeof Goal
-  | typeof PictureInPicture
-  | typeof Paintbrush
-  | typeof MousePointerClick
-  | typeof MessageCircle
-  | typeof Newspaper
+  typeof Dumbbell | typeof Trophy | typeof Medal | typeof Waves | typeof Wine | typeof UtensilsCrossed | typeof Basketball | typeof Tennis
 > = {
-  tabletSmartphone: TabletSmartphone,
-  badgeCheck: BadgeCheck,
-  goal: Goal,
-  pictureInPicture: PictureInPicture,
-  paintbrush: Paintbrush,
-  mousePointerClick: MousePointerClick,
-  messageCircle: MessageCircle,
-  newspaper: Newspaper,
+  forkKnife: ForkKnife,
+  dumbbell: Dumbbell,
+  trophy: Trophy,
+  medal: Medal,
+  waves: Waves,
+  wine: Wine,
+  utensilsCrossed: UtensilsCrossed,
+  basketball: Basketball,
+  tennis: Tennis,
 };
+
+const showPartyElements = ref(false);
+
+onMounted(() => {
+  const urlParams = new URLSearchParams(window.location.search);
+  showPartyElements.value = urlParams.has('party');
+});
 </script>
 
 <template>
@@ -91,7 +116,7 @@ const iconMap: Record<
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
       <div
-        v-for="{ icon, title, description } in featureList"
+        v-for="{ icon, title, description } in activities"
         :key="title"
       >
         <Card class="h-full bg-background border-0 shadow-none">
@@ -111,7 +136,71 @@ const iconMap: Record<
           </CardHeader>
 
           <CardContent class="text-muted-foreground text-center">
-            {{ description }}
+            <div v-html="description" />
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+
+    <h2 v-if="showPartyElements" class="text-3xl md:text-4xl text-center font-bold mb-8 mt-16">
+      Activități Sâmbătă
+    </h2>
+
+    <div v-if="showPartyElements" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div
+        v-for="{ icon, title, description } in saturdayActivities"
+        :key="title"
+      >
+        <Card class="h-full bg-background border-0 shadow-none">
+          <CardHeader class="flex justify-center items-center">
+            <div
+              class="bg-primary/20 p-2 rounded-full ring-8 ring-primary/10 mb-4"
+            >
+              <component
+                :is="iconMap[icon]"
+                class="size-6 text-primary"
+              />
+            </div>
+
+            <CardTitle>
+              {{ title }}
+            </CardTitle>
+          </CardHeader>
+
+          <CardContent class="text-muted-foreground text-center">
+            <div v-html="description" />
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+
+    <h2 v-if="showPartyElements" class="text-3xl md:text-4xl text-center font-bold mb-8 mt-16">
+      Activități Duminică
+    </h2>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div
+        v-for="{ icon, title, description } in sundayActivities"
+        :key="title"
+      >
+        <Card class="h-full bg-background border-0 shadow-none">
+          <CardHeader class="flex justify-center items-center">
+            <div
+              class="bg-primary/20 p-2 rounded-full ring-8 ring-primary/10 mb-4"
+            >
+              <component
+                :is="iconMap[icon]"
+                class="size-6 text-primary"
+              />
+            </div>
+
+            <CardTitle>
+              {{ title }}
+            </CardTitle>
+          </CardHeader>
+
+          <CardContent class="text-muted-foreground text-center">
+            <div v-html="description" />
           </CardContent>
         </Card>
       </div>
@@ -119,4 +208,9 @@ const iconMap: Record<
   </section>
 </template>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+#party-start {
+  user-select: none;
+  -webkit-user-select: none;
+}
+</style>

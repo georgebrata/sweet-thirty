@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-vue-next";
 import { useCountdown } from "@/composables/useCountdown";
 import { ref, onMounted } from 'vue';
+import { Fireworks } from '@fireworks-js/vue'
 
-const targetDate = new Date('2025-07-08');
+const showFireworks = ref(false);
+const targetDate = new Date('2025-07-18');
 const { days, hours, minutes, seconds } = useCountdown(targetDate);
 
 const ms = ref(1000);
@@ -19,10 +21,24 @@ onMounted(() => {
   }, 16.67); // ~60 FPS refresh rate
 });
 
+const startParty = () => {
+  // fireworks
+  showFireworks.value = true;
+};
+
+const stopParty = () => {
+  showFireworks.value = false;
+};
+
+  
 </script>
 
 <template>
   <section class="container">
+    <Fireworks
+      v-if="showFireworks"
+      style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999;"
+    />
     <div
       class="grid place-items-center lg:max-w-screen-xl gap-8 mx-auto py-20 md:py-32"
     >
@@ -34,12 +50,15 @@ onMounted(() => {
         <div
           class="max-w-screen-md mx-auto text-center text-5xl md:text-6xl font-bold"
         >
-          <h1>
+          <h1 class="custom-cursor" id="start-party" @mouseenter="startParty" @mouseleave="stopParty" @touchstart="startParty" @touchend="stopParty">
             <span
               class="text-transparent bg-gradient-to-r from-[#D247BF] to-primary bg-clip-text"
               >George Brata</span>'s
               sweet 30 🎉
           </h1>
+          <h2 class="text-xl md:text-2xl lg:text-3xl mt-2 italic">
+            18 - 20 Iulie 2025
+          </h2>
         </div>
         <p class="max-w-screen-sm mx-auto text-xl text-muted-foreground">
           Ești pregătit să petreci un weekend spectaculos în natură, <br/> pe malul Crișului Repede?
@@ -60,11 +79,19 @@ onMounted(() => {
 
 
         <div class="space-y-4 md:space-y-0 md:space-x-4">
-          <Button class="w-5/6 md:w-1/4 font-bold group/arrow">
-            <a href="#contact">RSPV</a>
-            <ArrowRight
-              class="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform"
-            />
+          <Button 
+            as-child
+            class="w-5/6 md:w-1/4 font-bold group/arrow dark:bg-primary/90"
+          >
+            <a 
+              href="#contact"
+              class="flex items-center justify-center w-full"
+            >
+              RSVP
+              <ArrowRight
+                class="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform"
+              />
+            </a>
           </Button>
 
           <Button
@@ -75,7 +102,7 @@ onMounted(() => {
             <a
               href="https://codepen.io/georgebrata/pen/myJyEpW"
               target="_blank"
-              >NO RSPV</a
+              >NO RSVP</a
             >
           </Button>
         </div>
@@ -90,7 +117,7 @@ onMounted(() => {
         <div class="w-full md:w-[1200px] mx-auto rounded-lg relative rouded-lg leading-none flex items-center border border-t-2 border-t-primary/30 img-border-animation">
           <iframe 
             src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1026188852351042&show_text=false&width=1200&height=675"
-            class="w-full h-[675px] rounded-lg"
+            class="w-full h-[250px] md:h-[650px] rounded-lg"
             style="border:none;"
             scrolling="no"
             frameborder="0"

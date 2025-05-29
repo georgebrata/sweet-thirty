@@ -8,25 +8,27 @@
   >
     <div class="p-10 bg-muted/50 dark:bg-card border rounded-2xl">
       <div
-        class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8"
+        class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-x-12 gap-y-8"
       >
         <div class="col-span-full xl:col-span-2">
           <a
             href="#"
             class="flex font-bold items-center"
           >
-            <h3 class="text-2xl">George Brata's Sweet 30 🎉</h3>
+            <h3 class="text-xl md:text-2xl lg:text-3xl">George Brata's Sweet 30 🎉</h3>
           </a>
         </div>
+        <div class="flex flex-col gap-2"></div>
+        <div class="flex flex-col gap-2"></div>
 
-        <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-2 text-center md:text-right col-span-full xl:col-span-1">
           <h3 class="font-bold text-lg">Contact</h3>
           <div>
             <a
               href="#"
               class="opacity-60 hover:opacity-100"
             >
-              Github
+              Email
             </a>
           </div>
 
@@ -35,7 +37,7 @@
               href="#"
               class="opacity-60 hover:opacity-100"
             >
-              Twitter
+              Facebook
             </a>
           </div>
 
@@ -49,95 +51,27 @@
           </div>
         </div>
 
-        <div class="flex flex-col gap-2">
-          <h3 class="font-bold text-lg">Platforms</h3>
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              iOS
-            </a>
-          </div>
+        <!-- <div class="flex flex-col gap-2 text-right">
+          <h3 class="font-bold text-lg">Link-uri utile</h3>
 
           <div>
             <a
               href="#"
               class="opacity-60 hover:opacity-100"
             >
-              Android
+              Website personal
             </a>
           </div>
 
           <div>
             <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Web
-            </a>
-          </div>
-        </div>
-
-        <div class="flex flex-col gap-2">
-          <h3 class="font-bold text-lg">Help</h3>
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Contact Us
-            </a>
-          </div>
-
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              FAQ
-            </a>
-          </div>
-
-          <div>
-            <a
-              href="#"
+              href=""
               class="opacity-60 hover:opacity-100"
             >
               Feedback
             </a>
           </div>
-        </div>
-
-        <div class="flex flex-col gap-2">
-          <h3 class="font-bold text-lg">Socials</h3>
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Twitch
-            </a>
-          </div>
-
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Discord
-            </a>
-          </div>
-
-          <div>
-            <a
-              href="#"
-              class="opacity-60 hover:opacity-100"
-            >
-              Dribbble
-            </a>
-          </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </footer>

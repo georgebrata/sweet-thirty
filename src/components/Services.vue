@@ -7,6 +7,12 @@ import {
 } from "@/components/ui/card";
 
 import { Badge } from "@/components/ui/badge";
+import { ref } from "vue";
+import { Volume2, VolumeX } from "lucide-vue-next";
+import jazzMusic from "@/assets/jazz.mp3";
+import houseMusic from "@/assets/house.mp3";
+import hiphopMusic from "@/assets/hiphop.mp3";
+import maneleMusic from "@/assets/manele.mp3";
 
 enum ProService {
   YES = 1,
@@ -19,6 +25,90 @@ interface ServiceProps {
   description?: string;
 }
 
+const jazzAudio = ref<HTMLAudioElement | null>(null);
+const houseAudio = ref<HTMLAudioElement | null>(null);
+const hiphopAudio = ref<HTMLAudioElement | null>(null);
+const maneleAudio = ref<HTMLAudioElement | null>(null);
+
+const isSoundEnabled = ref(false);
+
+const toggleSound = () => {
+  isSoundEnabled.value = !isSoundEnabled.value;
+  if (!isSoundEnabled.value) {
+    stopAllMusic();
+  }
+};
+
+const playMusic = (title: string) => {
+  if(isSoundEnabled.value) {
+    stopAllMusicExcept(title)
+
+    if (title === "Jazz" && jazzAudio.value) {
+      jazzAudio.value.play();
+      jazzAudio.value.loop = true;
+    }
+    if (title === "House" && houseAudio.value) {
+      houseAudio.value.play();
+      houseAudio.value.loop = true;
+    }
+    if (title === "Hip - Hop" && hiphopAudio.value) {
+      hiphopAudio.value.play();
+      hiphopAudio.value.loop = true;
+    }
+    if (title === "Manele" && maneleAudio.value) {
+      maneleAudio.value.play();
+      maneleAudio.value.loop = true;
+    }
+  }
+};
+
+const stopMusic = (title: string) => {
+  if (title === "Jazz" && jazzAudio.value) {
+    jazzAudio.value.pause();
+    jazzAudio.value.currentTime = 0;
+  }
+  if (title === "House" && houseAudio.value) {
+    houseAudio.value.pause();
+    houseAudio.value.currentTime = 0;
+  }
+  if (title === "Hip - Hop" && hiphopAudio.value) {
+    hiphopAudio.value.pause();
+    hiphopAudio.value.currentTime = 0;
+  }
+  if (title === "Manele" && maneleAudio.value) {
+    maneleAudio.value.pause();
+    maneleAudio.value.currentTime = 0;
+  }
+};
+
+const stopAllMusic = () => {
+  if (jazzAudio.value) {
+    jazzAudio.value.pause();
+    jazzAudio.value.currentTime = 0;
+  }
+  if (houseAudio.value) {
+    houseAudio.value.pause();
+    houseAudio.value.currentTime = 0;
+  }
+  if (hiphopAudio.value) {
+    hiphopAudio.value.pause();
+    hiphopAudio.value.currentTime = 0;
+  }
+  if (maneleAudio.value) {
+    maneleAudio.value.pause();
+    maneleAudio.value.currentTime = 0;
+  }
+};
+
+const stopAllMusicExcept = (title: string) => {
+  const allTitles = ["Jazz", "House", "Hip - Hop", "Manele"];
+  allTitles.forEach(musicTitle => {
+    if (musicTitle !== title) {
+      stopMusic(musicTitle);
+    }
+  });
+};
+
 const serviceList: ServiceProps[] = [
   {
     title: "Jazz",
@@ -29,7 +119,7 @@ const serviceList: ServiceProps[] = [
     pro: 0,
   },
   {
-    title: "Chillout",
+    title: "House",
     pro: 0,
   },
   {
@@ -44,16 +134,52 @@ const serviceList: ServiceProps[] = [
     id="services"
     class="container py-24 sm:py-32"
   >
+    <audio
+      ref="jazzAudio"
+      :src="jazzMusic"
+      preload="auto"
+    ></audio>
+    <audio
+      ref="houseAudio"
+      :src="houseMusic"
+      preload="auto"
+    ></audio>
+    <audio
+      ref="hiphopAudio"
+      :src="hiphopMusic"
+      preload="auto"
+    ></audio>
+    <audio
+      ref="maneleAudio"
+      :src="maneleMusic"
+      preload="auto"
+    ></audio>
+
     <!-- <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
       Services
     </h2> -->
 
     <h2 class="text-3xl md:text-4xl text-center font-bold mb-4">
-      Muzica
+      Muzică
     </h2>
     <h3 class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-      Pentru toate gusurile
+      Pentru toate gusturile
     </h3>
+
+    <!-- Sound toggle button -->
+    <div class="flex justify-center mb-8">
+      <button 
+        @click="toggleSound"
+        class="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
+      >
+        <component
+          :is="isSoundEnabled ? Volume2 : VolumeX"
+          class="size-4"
+        />
+        <span class="text-sm">{{ isSoundEnabled ? 'Dezactivează sunetul' : 'Activează sunetul' }}</span>
+      </button>
+    </div>
+
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
 
     <div
@@ -63,7 +189,12 @@ const serviceList: ServiceProps[] = [
         v-for="{ title, pro } in serviceList"
         :key="title"
       >
-        <Card class="bg-muted/60 dark:bg-card h-full relative group">
+        <Card 
+          class="bg-muted/60 dark:bg-card h-full relative group"
+          @touchstart="playMusic(title)"
+          @mouseenter="playMusic(title)"
+          @mouseleave="stopMusic(title)"
+        >
           <CardHeader>
             <CardTitle class="flex items-center justify-between gap-2">
               {{ title }}
@@ -82,8 +213,9 @@ const serviceList: ServiceProps[] = [
             v-if="pro === ProService.YES"
             variant="secondary"
             class="absolute -top-2 -right-3"
-            >DIMINEAȚA</Badge
           >
+            DIMINEAȚA
+          </Badge>
         </Card>
       </div>
     </div>
