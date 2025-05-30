@@ -35,7 +35,7 @@ const benefitList: BenefitsProps[] = [
   {
     icon: "stickyNote",
     title: "Prosoape",
-    description: "Ești la cabană, nu la hotel",
+    description: "Ești la o cabană, nu la un hotel",
   },
   {
     icon: "shirt",
