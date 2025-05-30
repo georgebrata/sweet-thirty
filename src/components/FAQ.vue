@@ -34,17 +34,17 @@ const FAQList: FAQProps[] = [
   },
   {
     question: "Pot să vin cu mașina?",
-    answer: "Da, există locuri de parcare disponibile la locație. Dacă plănuiești să consumi alcool, te rugăm să ai un șofer desemnat sau să rămâi peste noapte.",
+    answer: "Da, există locuri de parcare suficiente disponibile la locație.",
     value: "item-3"
   },
   {
     question: "Ce să aduc cu mine?",
-    answer: "Doar bună dispoziție și energie pentru dans! Dacă rămâi peste noapte, nu uita să aduci cele necesare pentru înnoptat.",
+    answer: "Costum de baie, pantofi de sport, bună dispoziție și energie pentru dans!",
     value: "item-4"
   },
   {
     question: "Până la ce oră se întinde petrecerea?",
-    answer: "Petrecerea se termină duminică, 20 iulie, seara - când pleacă ultimul invitat",
+    answer: "Petrecerea se termină duminică, 20 iulie, seara - când pleacă ultimul invitat.",
     value: "item-5"
   },
   {
@@ -54,7 +54,7 @@ const FAQList: FAQProps[] = [
   },
   {
     question: "Aduceți voi mingi?",
-    answer: "Da, aducem mingi de fotbal și baschet. Dacă dorești să aduci alte sporturi, te rugăm să ne anunți.",
+    answer: "Da, aducem mingi de fotbal și baschet. Dacă dorești să aduci echipament pentru alte sporturi te rog să mă anunți.",
     value: "item-7"
   },
 ];
