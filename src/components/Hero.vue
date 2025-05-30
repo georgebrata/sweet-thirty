@@ -82,7 +82,7 @@ onMounted(() => {
           class="text-sm py-2"
         >
           <span class="mr-2 text-primary">
-            <Badge>Incepe în</Badge>
+            <Badge>Începe în</Badge>
           </span>
           <span>           
               {{ days }} zile {{ hours }}ore {{ minutes }}minute {{ seconds }}secunde 
@@ -127,7 +127,7 @@ onMounted(() => {
           class="absolute -top-6 right-12 w-[90%] h-12 lg:h-[80%] bg-primary/50 blur-3xl rounded-full img-shadow-animation"
         ></div>
 
-        <!-- <div class="w-full md:w-[1200px] mx-auto rounded-lg relative rouded-lg leading-none flex items-center border border-t-2 border-t-primary/30 img-border-animation">
+        <div class="w-full md:w-[1200px] mx-auto rounded-lg relative rouded-lg leading-none flex items-center border border-t-2 border-t-primary/30 img-border-animation">
           <iframe 
             src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1026188852351042&show_text=false&width=1200&height=675"
             class="w-full h-[250px] md:h-[650px] rounded-lg"
@@ -136,7 +136,7 @@ onMounted(() => {
             frameborder="0"
             allowfullscreen="true"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div> -->
+        </div>
 
         <!-- gradient effect -->
         <div
