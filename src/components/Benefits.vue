@@ -55,6 +55,7 @@ const iconMap: Record<
 > = {
   sparkle: Sparkle,
   tag: Tag,
+  waves: Bath,
   paintbrush: Paintbrush,
   blocks: Blocks,
   lineChart: LineChart,

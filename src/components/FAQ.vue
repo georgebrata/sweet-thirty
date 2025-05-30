@@ -22,32 +22,32 @@ const FAQList: FAQProps[] = [
   {
     question: "Ce activități vor fi la petrecere?",
     answer: "Petrecerea va include muzică live (jazz, hip-hop, house și manele), dans, și multe momente de distracție împreună. Vom avea și activități în aer liber dacă vremea permite.",
-    value: "item-1"
+    value: "item-2"
   },
   {
     question: "Aduceți voi mingi?",
     answer: "Da, aducem mingi de fotbal și baschet. Dacă dorești să aduci alte sporturi, te rugăm să ne anunți.",
-    value: "item-2"
+    value: "item-3"
   },
   {
     question: "Pot să rămân peste noapte?",
     answer: "Da, există posibilitatea de cazare pentru vineri și sâmbătă noaptea. Te rugăm să menționezi acest lucru în formularul de RSVP pentru a putea organiza spațiile de cazare.",
-    value: "item-3"
+    value: "item-4"
   },
   {
     question: "Ce să aduc cu mine?",
     answer: "Doar bună dispoziție și energie pentru dans! Dacă rămâi peste noapte, nu uita să aduci cele necesare pentru înnoptat.",
-    value: "item-4"
+    value: "item-5"
   },
   {
     question: "Până la ce oră se întinde petrecerea?",
     answer: "Petrecerea se termină duminică seara, 20 iulie. Pentru cei care rămân peste noapte, distracția continuă până dimineața!",
-    value: "item-5"
+    value: "item-6"
   },
   {
     question: "Pot să vin cu mașina?",
     answer: "Da, există locuri de parcare disponibile la locație. Dacă plănuiești să consumi alcool, te rugăm să ai un șofer desemnat sau să rămâi peste noapte.",
-    value: "item-6"
+    value: "item-7"
   }
 ];
 </script>
