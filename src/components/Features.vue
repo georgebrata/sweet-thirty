@@ -43,7 +43,7 @@ const sundayActivities: FeaturesProps[] = [
 {
     icon: "waves",
     title: "Piscină + Ciubăr",
-    description: "Răcorire la piscină, relaxare la ciubăr cu apă caldă și vedere spre munte. Nu uita costumul de baie!",
+    description: "Poolside drinks, relaxare la ciubăr și vedere spre munte. Nu uita costumul de baie!",
   },
   {
     icon: "wine",

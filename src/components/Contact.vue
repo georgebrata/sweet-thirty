@@ -49,8 +49,6 @@ const handleSubmit = async () => {
         "nume": contactForm.name,
         "telefon": contactForm.phone,
         "counter": contactForm.counter,
-        "friday": showPartyElements.value ? contactForm.friday ? "Da" : "Nu" : "Nu",
-        "fridayOvernight": showPartyElements.value ? contactForm.overnightFriday ? "Da" : "Nu" : "Nu",
         "saturday": showPartyElements.value ? contactForm.saturday ? "Da" : "Nu" : "Nu",
         "saturdayOvernight": showPartyElements.value ? contactForm.overnightSaturday ? "Da" : "Nu" : "Nu",
         "sunday": !showPartyElements.value ? "Da" : contactForm.sunday ? "Da" : "Nu",
@@ -226,14 +224,6 @@ onMounted(() => {
                 <div class="flex items-center space-x-4 mb-2">
                   <div class="flex items-center space-x-2">
                     <Checkbox 
-                      id="friday" 
-                      v-model="contactForm.friday"
-                    />
-                    <Label for="friday">Vineri</Label>
-                  </div>
-
-                  <div class="flex items-center space-x-2">
-                    <Checkbox 
                       id="saturday" 
                       v-model="contactForm.saturday"
                     />
@@ -250,18 +240,10 @@ onMounted(() => {
                 </div>
               </div>
 
-              <div class="flex flex-col gap-1.5" v-if="showPartyElements && (contactForm.friday || contactForm.saturday)">
+              <div class="flex flex-col gap-1.5" v-if="showPartyElements && contactForm.saturday">
                 <Label for="overnight" v-if="contactForm.counter === 1">Doresc să rămân peste noapte</Label>
                 <Label for="overnight" v-else>Dorim să rămânem peste noapte</Label>
                 <div class="flex items-center space-x-4 mb-2">
-                  <div class="flex items-center space-x-2" v-if="contactForm.friday">
-                    <Checkbox 
-                      id="overnightFriday" 
-                      v-model="contactForm.overnightFriday"
-                    />
-                    <Label for="overnightFriday">Vineri</Label>
-                  </div>
-
                   <div class="flex items-center space-x-2" v-if="contactForm.saturday">
                     <Checkbox 
                       id="overnightSaturday" 

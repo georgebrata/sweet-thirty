@@ -51,15 +51,15 @@ const routeList: RouteProps[] = [
     href: "#adresa",
     label: "Adresă",
   },
-  {
-    href: "#faq",
-    label: "Întrebări frecvente",
-  }
+  // {
+  //   href: "#faq",
+  //   label: "Întrebări frecvente",
+  // }
 ];
 
 const featureList: FeatureProps[] = [
   {
-    title: "Relaxare",
+    title: "Relax",
     description: "Grătar în curte, băuturi la piscină, cină în aer liber și relaxare la ciubăr",
   },
   {
@@ -67,11 +67,11 @@ const featureList: FeatureProps[] = [
     description: "De la ținută și atmosferă până la glume și conversații, totul este casual",
   },
   {
-    title: "Distracție",
+    title: "Fun",
     description: "Adu-ți cea mai bună dispoziție și cele mai tari mișcări de dans",
   },
   {
-    title: "Sport",
+    title: "Sportsy",
     description: "Evenimente sportive individuale și de echipă, cu premii pentru câștigători",
   },
 ];

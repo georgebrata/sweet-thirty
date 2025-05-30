@@ -8,10 +8,9 @@ import { Fireworks } from '@fireworks-js/vue'
 
 const showFireworks = ref(false);
 const showPartyElements = ref(false);
-const targetDate = showPartyElements.value ? new Date('2025-07-18') : new Date('2025-07-20');
 const urlParams = new URLSearchParams(window.location.search);
 showPartyElements.value = urlParams.has('party');
-const { days, hours, minutes, seconds } = useCountdown(targetDate);
+const { days, hours, minutes, seconds } = useCountdown(showPartyElements.value ? new Date('2025-07-19') : new Date('2025-07-20'));
 
 const ms = ref(1000);
 
