@@ -122,7 +122,7 @@ onMounted(() => {
             <div>Str. Crișana nr. 11A</div>
             <div class="flex">
               <Button variant="link" size="sm" class="w-fit mt-2 text-primary" asChild>
-                <a href="https://maps.app.goo.gl/1234567890" target="_blank" class="flex items-center gap-2">
+                <a href="https://maps.app.goo.gl/VbYvtLaDs76yuPhQA" target="_blank" class="flex items-center gap-2">
                   Vezi pe Google Maps
                   <Map class="h-4 w-4" />
                 </a>

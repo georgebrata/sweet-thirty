@@ -21,6 +21,9 @@ const showPartyElements = ref(false);
 onMounted(() => {
   const urlParams = new URLSearchParams(window.location.search);
   showPartyElements.value = urlParams.has('party');
+
+  console.log("Îmi plac oamenii curioși care investighează cum funcționează website-urile. Hai să colaborăm!");
+  console.log("Trimite-mi te rog un email la bratageorge@gmail.com");
 });
 </script>
 

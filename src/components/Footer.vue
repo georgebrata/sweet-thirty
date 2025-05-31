@@ -8,7 +8,7 @@
   >
     <div class="p-10 bg-muted/50 dark:bg-card border rounded-2xl">
       <div
-        class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-x-12 gap-y-8"
+        class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-12 gap-y-8"
       >
         <div class="col-span-full xl:col-span-2">
           <a
@@ -19,13 +19,12 @@
           </a>
         </div>
         <div class="flex flex-col gap-2"></div>
-        <div class="flex flex-col gap-2"></div>
 
-        <div class="flex flex-col gap-2 text-center md:text-right col-span-full xl:col-span-1">
+        <div class="flex flex-col gap-2 text-center md:text-right col-span-full xl:col-span-2">
           <h3 class="font-bold text-lg">Contact</h3>
           <div>
             <a
-              href="#"
+              href="mailto:bratageorge@gmail.com"
               class="opacity-60 hover:opacity-100"
             >
               Email
@@ -34,7 +33,7 @@
 
           <div>
             <a
-              href="#"
+              href="https://www.facebook.com/gebrata"
               class="opacity-60 hover:opacity-100"
             >
               Facebook
@@ -43,12 +42,20 @@
 
           <div>
             <a
-              href="#"
+              href="https://www.instagram.com/georgebrata"
               class="opacity-60 hover:opacity-100"
             >
               Instagram
             </a>
           </div>
+          <h3 class="font-bold text-lg">
+            <a
+              target="_blank"
+              href="mailto:bratageorge@gmail.com?subject=Vreau un website asemănător"
+              class="opacity-60 hover:opacity-100"
+            >
+            Vreau un website asemănător
+            </a></h3>            
         </div>
 
         <!-- <div class="flex flex-col gap-2 text-right">
