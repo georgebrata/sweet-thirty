@@ -8,7 +8,7 @@ import {
 
 import { Badge } from "@/components/ui/badge";
 import { ref } from "vue";
-import { Volume2, VolumeX, Sparkle, Tag, Paintbrush, Blocks, Bath, LineChart, StickyNote, Shirt, Footprints, Wallet } from "lucide-vue-next";
+import { Volume2, VolumeX } from "lucide-vue-next";
 import jazzMusic from "@/assets/jazz.mp3";
 import houseMusic from "@/assets/house.mp3";
 import hiphopMusic from "@/assets/hiphop.mp3";
