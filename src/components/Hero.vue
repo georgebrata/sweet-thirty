@@ -112,7 +112,7 @@ onMounted(() => {
             class="w-5/6 md:w-1/4 font-bold"
           >
             <a
-              href="https://codepen.io/georgebrata/pen/myJyEpW"
+              href="https://georgebrata.ro/ok"
               target="_blank"
               >NO RSVP</a
             >

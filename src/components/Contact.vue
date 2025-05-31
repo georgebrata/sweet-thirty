@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, onMounted, watch } from "vue";
 import { Button } from "./ui/button";
 import { Card, CardHeader, CardContent } from "./ui/card";
 import { Label } from "./ui/label";
@@ -42,6 +42,12 @@ onMounted(() => {
 });
 
 const handleSubmit = async () => {
+  if (!contactForm.name || !contactForm.phone || !contactForm.counter) {
+    invalidInputForm.value = true;
+    return;
+  }
+
+  invalidInputForm.value = false;
   try {
     const url = 'https://api.sheety.co/06def408e74850aef0fbd22a79539f9f/sweetThirty/confirmati';
     const body = {
@@ -90,6 +96,21 @@ const handleSubmit = async () => {
     alert('A apărut o eroare. Te rugăm să încerci din nou sau să ne contactezi telefonic.');
   }
 };
+
+watch(
+  [
+    () => contactForm.name,
+    () => contactForm.phone,
+    () => contactForm.counter
+  ],
+  ([name, phone, counter]) => {
+    if (name && phone && counter > 0) {
+      invalidInputForm.value = false;
+    }
+  }
+);
+
+
 
 const showPartyElements = ref(false);
 
@@ -261,11 +282,13 @@ onMounted(() => {
                 <AlertCircle class="w-4 h-4" />
                 <AlertTitle>Eroare</AlertTitle>
                 <AlertDescription>
-                  Vă rugăm să verificați datele introduse.
+                  <p v-if="!contactForm.name">Te rog să introduci numele și prenumele.</p>
+                  <p v-if="!contactForm.phone">Te rog să introduci numărul de telefon.</p>
+                  <p v-if="!contactForm.counter">Te rog să introduci numărul de persoane.</p>
                 </AlertDescription>
               </Alert>
 
-              <Button :disabled="!contactForm.name" :class="{ 'mt-56': !(contactForm.friday || contactForm.saturday)  }">Trimite</Button>
+              <Button :disabled="!contactForm.name" :class="{ 'mt-56': !(contactForm.friday || contactForm.saturday), 'mt-0': invalidInputForm }">Trimite</Button>
             </form>
           </CardContent>
 

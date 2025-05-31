@@ -98,7 +98,7 @@ onMounted(() => {
         <Card
           v-for="({ icon, title }, index) in !showPartyElements ? benefitList.slice(0, 2) : benefitList"
           :key="title"
-          class="bg-muted/50 dark:bg-card hover:bg-background dark:hover:bg-background transition-all delay-75 group/number"
+          class="bg-muted/50 dark:bg-card hover:bg-background dark:hover:bg-background transition-all delay-75 group/number border-2 border-transparent hover:border-primary"
         >
           <CardHeader>
             <div class="flex justify-between">
@@ -108,7 +108,7 @@ onMounted(() => {
               />
 
               <span
-                class="text-5xl text-primary/15 font-medium transition-all delay-75 group-hover/number:text-primary/30"
+                class="text-5xl text-primary/15 font-medium transition-all delay-75 group-hover/number:text-primary"
                 >0{{ index + 1 }}</span
               >
             </div>

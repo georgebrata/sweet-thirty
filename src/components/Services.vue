@@ -8,7 +8,7 @@ import {
 
 import { Badge } from "@/components/ui/badge";
 import { ref } from "vue";
-import { Volume2, VolumeX } from "lucide-vue-next";
+import { Volume2, VolumeX, Sparkle, Tag, Paintbrush, Blocks, Bath, LineChart, StickyNote, Shirt, Footprints, Wallet } from "lucide-vue-next";
 import jazzMusic from "@/assets/jazz.mp3";
 import houseMusic from "@/assets/house.mp3";
 import hiphopMusic from "@/assets/hiphop.mp3";
@@ -190,7 +190,7 @@ const serviceList: ServiceProps[] = [
         :key="title"
       >
         <Card 
-          class="bg-muted/60 dark:bg-card h-full relative group"
+          class="bg-muted/60 dark:bg-card h-full relative group border-2 border-transparent hover:border-primary transition-all delay-75"
           @touchstart="playMusic(title)"
           @mouseenter="playMusic(title)"
           @mouseleave="stopMusic(title)"
@@ -198,12 +198,15 @@ const serviceList: ServiceProps[] = [
           <CardHeader>
             <CardTitle class="flex items-center justify-between gap-2">
               {{ title }}
-              <div class="sound-wave opacity-0 transition-opacity duration-300 flex items-center justify-center gap-1 group-hover:opacity-100">
-                <span class="w-1 h-3 bg-primary rounded-full animate-soundwave"></span>
-                <span class="w-1 h-5 bg-primary rounded-full animate-soundwave animation-delay-200"></span>
-                <span class="w-1 h-2 bg-primary rounded-full animate-soundwave animation-delay-400"></span>
-                <span class="w-1 h-4 bg-primary rounded-full animate-soundwave animation-delay-600"></span>
-                <span class="w-1 h-3 bg-primary rounded-full animate-soundwave animation-delay-800"></span>
+              <div class="opacity-0 transition-opacity duration-300 flex items-center justify-center gap-1 group-hover:opacity-100">
+                <template v-if="isSoundEnabled">
+                  <span class="w-1 h-3 bg-primary rounded-full animate-soundwave"></span>
+                  <span class="w-1 h-5 bg-primary rounded-full animate-soundwave animation-delay-200"></span>
+                  <span class="w-1 h-2 bg-primary rounded-full animate-soundwave animation-delay-400"></span>
+                  <span class="w-1 h-4 bg-primary rounded-full animate-soundwave animation-delay-600"></span>
+                  <span class="w-1 h-3 bg-primary rounded-full animate-soundwave animation-delay-800"></span>
+                </template>
+                <VolumeX v-else class="size-5 text-primary" />
               </div>
             </CardTitle>
            
