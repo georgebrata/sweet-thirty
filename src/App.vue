@@ -15,6 +15,7 @@ import Community from "./components/Community.vue";
 import Contact from "./components/Contact.vue";
 import FAQ from "./components/FAQ.vue";
 import Footer from "./components/Footer.vue";
+// import ProgrammerJoke from "./components/ProgrammerJoke.vue";
 
 const showPartyElements = ref(false);
 
@@ -33,6 +34,7 @@ onMounted(() => {
   <!-- <Sponsors /> -->
   <Benefits />
   <Features />
+  <!-- <ProgrammerJoke v-if="showPartyElements" /> -->
   <Community v-if="showPartyElements" />
   <Services v-if="showPartyElements" />
   <!-- <HowItWorks /> -->
