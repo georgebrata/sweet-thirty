@@ -24,7 +24,7 @@ onMounted(() => {
 const FAQList: FAQProps[] = [
   {
     question: "Ce cadou pot să cumpăr?",
-    answer: "Orice cadou din urmatoarea listă e mai mult ca perfect: <a style='text-decoration: underline;' href='https://www.emag.ro/favorites/hash/b34ce790-a4f6-4395-be8f-468c74c7295b' target='_blank'>emag wishlist</a>",
+    answer: "Orice cadou din urmatoarea listă e mai mult ca perfect: <a style='text-decoration: underline;' href='https://www.emag.ro/favorites/hash/b34ce790-a4f6-4395-be8f-468c74c7295b' target='_blank'>emag wishlist</a>. <br/>Sau mă poți surprinde cu o carte din <a style='text-decoration: underline;' href='https://www.goodreads.com/review/list/104479914?shelf=public-wishlist' target='_blank'>următoarea listă</a>.",
     value: "item-1"
   },
   {
