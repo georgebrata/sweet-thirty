@@ -29,12 +29,12 @@ const FAQList: FAQProps[] = [
   },
   {
     question: new URLSearchParams(window.location.search).has('party') ? "Ce activități vor fi la petrecere?" : "Ce activități vor fi?",
-    answer: "Petrecerea va include muzică live (jazz, hip-hop, house și manele), dans, și multe momente de distracție împreună. Vom avea și activități în aer liber dacă vremea permite.",
+    answer: "Petrecerea va include muzică live (jazz, hip-hop, house și manele), dans, și multe momente de distracție împreună. Vom avea și activități sportive în aer liber (fotbal, baschet, badminton) dacă vremea permite.",
     value: "item-2"
   },
   {
     question: "Pot să vin cu mașina?",
-    answer: "Da, există locuri de parcare suficiente disponibile la locație.",
+    answer: "Da, există suficiente locuri de parcare disponibile la locație.",
     value: "item-3"
   },
   {
