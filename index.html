@@ -1,79 +1,63 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="./src/assets/favicon.ico"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>George Brata's sweet 30 🎉</title>
 
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Font (optional for elegance) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+
     <!-- Primary Meta Tags -->
-    <meta
-      name="title"
-      content="George Brata's sweet 30 🎉"
-    />
-    <meta
-      name="description"
-      content="Ești pregătit să petreci timp spectaculos în natură, pe malul Crișului Repede?"
-    />
+    <meta name="title" content="George Brata's sweet 30 🎉" />
+    <meta name="description" content="Ești pregătit să petreci timp spectaculos în natură, pe malul Crișului Repede?" />
 
     <!-- Open Graph / Facebook -->
-    <meta
-      property="og:type"
-      content="website"
-    />
-    <meta
-      property="og:url"
-      content="https://30.georgebrata.ro/"
-    />
-    <meta
-      property="og:title"
-      content="George Brata's sweet 30 🎉"
-    />
-    <meta
-      property="og:description"
-      content="Ești pregătit să petreci timp spectaculos în natură, pe malul Crișului Repede?"
-    />
-    <meta
-      property="og:image"
-      content=""
-    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://30.georgebrata.ro/" />
+    <meta property="og:title" content="George Brata's sweet 30 🎉" />
+    <meta property="og:description" content="Ești pregătit să petreci timp spectaculos în natură, pe malul Crișului Repede?" />
+    <meta property="og:image" content="https://30.georgebrata.ro/preview.jpg" />
 
     <!-- Twitter -->
-    <meta
-      name="twitter:card"
-      content="summary_large_image"
-    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://30.georgebrata.ro/" />
+    <meta name="twitter:title" content="George Brata's sweet 30 🎉" />
+    <meta name="twitter:description" content="Ești pregătit să petreci timp spectaculos în natură, pe malul Crișului Repede?" />
+    <meta name="twitter:image" content="https://30.georgebrata.ro/preview.jpg" />
 
-    <meta
-      name="twitter:url"
-      content="https://30.georgebrata.ro/"
-    />
-    <meta
-      name="twitter:title"
-      content="George Brata's sweet 30 🎉"
-    />
-    <meta
-      name="twitter:description"
-      content="Ești pregătit să petreci timp spectaculos în natură, pe malul Crișului Repede?"
-    />
-    <meta
-      name="twitter:image"
-      content=""
-    />
-    <script src="https://cdn.counter.dev/script.js" data-id="03bd5925-48e2-4d33-ae59-d66aaf6acba0" data-utcoffset="2"></script>
-  </head>
-  <body>
-    <div id="app"></div>
+    <!-- Analytics / Counter -->
     <script
-      type="module"
-      src="/src/main.ts"
+      src="https://cdn.counter.dev/script.js"
+      data-id="03bd5925-48e2-4d33-ae59-d66aaf6acba0"
+      data-utcoffset="2"
+      defer
     ></script>
+
+    <!-- Optional: Dark mode support for Tailwind -->
+    <script>
+      // If you want to persist dark mode based on system preference:
+      if (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+
+    <!-- Styling is managed via Tailwind in Vue -->
+  </head>
+
+  <body style="font-family: 'Inter', sans-serif;">
+    <div id="app"></div>
+
+    <!-- Main JS -->
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
