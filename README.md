@@ -1,4 +1,5 @@
-# Birthday Website 🎉
+# Birthday Celebration Website 🎉
+### Forked from George Brata Sweet Thirty: Own copy for annuaicoder
 #### based on <a href="https://www.shadcn-vue.com/" target="_blank">Shadcn-Vue</a> + <a href="https://vuejs.org/" target="_blank">Vue.js</a> + <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.
 
 ![Alt text](./public/demo-img.jpg)
